@@ -241,6 +241,11 @@ class Jalalian
         $months = ($months % 12) + $date->getMonth();
         $days = 0;
 
+        if($months > 12){
+            $this->addYears();
+            $months = $months % 12;
+        }
+
         for ($i = $date->getMonth() + 1; $i <= $months; $i++) {
             $days += $date->getDaysOf($i);
             if ($i === 12) {
